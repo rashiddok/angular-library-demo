@@ -1,0 +1,32 @@
+<div class="container">
+
+    <div class="col-12 mt-3">
+        <div class="d-flex">
+
+            <div class="form-inline me-2" style="width: 20rem;">
+                <input class="form-control" type="search" placeholder="Поиск..." aria-label="Search">
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Категории
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li *ngFor="let category of categories"><a class="dropdown-item" href="#">{{category?.name}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="books__wrapper">
+            <div class="books__wrapper">
+                <div class="card me-2" *ngFor="let book of books" [routerLink]="['/','book', book?.id]">
+                    <img class="card-img-top" [src]="book?.cover" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{book?.name}}</h5>
+                        <p class="card-text card-author"><small class="text-muted">{{book?.author}}</small></p>
+                        <p class="card-text card-desciption">{{book?.description}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

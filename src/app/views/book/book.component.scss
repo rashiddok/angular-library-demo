@@ -1,0 +1,33 @@
+.book {
+    display: flex;
+    flex-direction: column;
+    &-cover {
+        img {
+            max-width: 10rem;
+            max-height: 20rem;
+            object-fit: contain;
+        }
+    }
+    &-body {
+        display: flex;
+        flex-direction: column;
+    }
+    &-header {
+        display: flex;
+        align-items: center;
+    }
+    &-title {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    &-author {
+        font-size: 1rem;
+        color: rgba(0, 0, 0, .55);
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    &-description {
+        font-size: 1.2rem;
+        color: black;
+    }
+}

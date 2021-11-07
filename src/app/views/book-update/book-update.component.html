@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="col-12 mt-3">
+        <form [formGroup]="bookForm">
+            <fieldset>
+                <legend>{{isUpdate ? 'Обновить' : 'Добавить'}} книгу</legend>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Название</label>
+                    <input type="text" id="name" formControlName="name" class="form-control" placeholder="Название" [ngClass]="{'invalid': bookForm.get('name').touched && bookForm.get('name').invalid}">
+                </div>
+                <div class="mb-3">
+                    <label for="issuedBy" class="form-label">Издательство</label>
+                    <input type="text" id="issuedBy" formControlName="issuedBy" class="form-control" placeholder="Издательство" [ngClass]="{'invalid': bookForm.get('issuedBy').touched && bookForm.get('issuedBy').invalid}">
+                </div>
+                <div class="mb-3">
+                    <label for="year" class="form-label">Год издания</label>
+                    <input type="number" id="year" formControlName="year" class="form-control" placeholder="Год издания" [ngClass]="{'invalid': bookForm.get('year').touched && bookForm.get('year').invalid}">
+                </div>
+                <div class="mb-3">
+                    <label for="pages" class="form-label">Количество страниц</label>
+                    <input type="number" id="pages" formControlName="pages" class="form-control" placeholder="Количество страниц" [ngClass]="{'invalid': bookForm.get('pages').touched && bookForm.get('pages').invalid}">
+                </div>
+                <div class="mb-3">
+                    <label for="cover" class="form-label">Обложка</label>
+                    <input type="text" id="cover" formControlName="cover" class="form-control" placeholder="Ссылка на обложку" [ngClass]="{'invalid': bookForm.get('cover').touched && bookForm.get('cover').invalid}">
+                </div>
+                <div class="mb-3">
+                    <label for="link" class="form-label">Ссылка на скачивание</label>
+                    <input type="text" id="link" formControlName="link" class="form-control" placeholder="Ссылка" [ngClass]="{'invalid': bookForm.get('link').touched && bookForm.get('link').invalid}">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Описание</label>
+                    <textarea type="number" id="description" formControlName="description" class="form-control" placeholder="Описание книги" [ngClass]="{'invalid': bookForm.get('description').touched && bookForm.get('description').invalid}"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="author" class="form-label">Автор</label>
+                    <select id="author" formControlName="author" class="form-select">
+                  <option *ngFor="let author of authors" [value]="author?.id">{{author?.name}}</option>
+                </select>
+                </div>
+                <div class="mb-3">
+                    <label for="newAuthor" class="form-label">Добавить автора</label>
+                    <input type="text" id="newAuthor" class="form-control" placeholder="Имя автора">
+                    <div class="btn btn-primary mt-1" (click)="addAuthor()">Добавить</div>
+                </div>
+                <div class="mb-3">
+                    <label for="category" class="form-label">Категория</label>
+                    <select id="category" formControlName="category" class="form-select">
+                  <option *ngFor="let category of categories" [value]="category?.id">{{category?.name}}</option>
+                </select>
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="submit()">{{isUpdate ? 'Обновить' : 'Добавить'}}</button>
+            </fieldset>
+        </form>
+    </div>
+</div>
